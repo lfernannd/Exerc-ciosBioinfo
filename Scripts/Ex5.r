@@ -1,12 +1,27 @@
 library("affy")
 library("GEOquery")
 
+#Células de IMR90 foram transfectados com retrovírus Controle, AKT e RAS, 4 réplicas cada
+#Fibroblastos foram selecionados com uso de drogas e mantidos no meio durante o experimento
+
+#Affitryx Platform: GPL570	[HG-U133_Plus_2] Affymetrix Human Genome U133 Plus 2.0 Array
+#54676 probe sets existentes na plataforma
+
+#Os dados foram analisados com RMA (Biocondutor) usando as configurações padrões do Affitryx
+#e normalização de quantis como técnica de normalização
+
+#Os autores buscavam  com o uso de microarrays detalhar a expressão de gene global após a trandução do AKT e RAS
+#e a partir disso entender a vantagem seletiva que a mutação tanto no RAS quanto no AKT (presentes na mesma via)
+#ofereces aos tumores humanos.
+
+
 # getting file
-# setwd("Files/")
-# getGEOSuppFiles("GSE45276")
-# untar("GSE45276_RAW.tar", exdir = "data")
-# cels = list.files("data/", pattern = "CEL")
-# sapply(paste("data", cels, sep = "/"), gunzip)
+
+setwd("Files/")
+getGEOSuppFiles("GSE45276")
+untar("GSE45276_RAW.tar", exdir = "data")
+cels = list.files("data/", pattern = "CEL")
+sapply(paste("data", cels, sep = "/"), gunzip)
 
 cels = list.files("data/", pattern = "CEL")
 
